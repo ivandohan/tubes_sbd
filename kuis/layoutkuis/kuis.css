@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+html {
+  background-color: #f7f7e8;
+}
+
+/* body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 100%;
+  text-align: center;
+  width: 800px;
+  margin: 10px auto;
+  padding: 20px;
+  border-radius: 1em;
+} */
+
+h1 {
+  color: cadetblue;
+}
+
+h3.question {
+  font-size: 2em;
+}
+
+.info {
+  font-size: 1.5em;
+}
+
+.answer {
+  background-color: #105652;
+  color: white;
+  border-radius: 10px;
+  padding: 1em;
+  text-align: center;
+  cursor: pointer;
+  width: 60%;
+  font-size: 1.5em;
+  margin: 10px auto 0;
+}
+
+.answer:hover {
+  background-color: #dfd8ca;
+}
+
+.answer.selected {
+  background-color: #9dad7f;
+}
+
+.button {
+  background-color: cadetblue;
+  color: white;
+  border-radius: 10px;
+  padding: 10px 5px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 2em;
+}
+
+.mini.button {
+  display: block;
+  width: 30%;
+}
+
+.next {
+  float: right;
+}
+
+.previous {
+  float: left;
+}
+
+.button:hover {
+  background-color: #80b7b9;
+}
+
+.button-holder {
+  width: 60%;
+  padding: 0.5em 0;
+  margin: 0.5em auto;
+}
+.clearfix:before,
+.clearfix:after {
+  content: ' ';
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+.response p {
+  margin: 50px auto;
+  font-size: 3em;
+}
