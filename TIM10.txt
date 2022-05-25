@@ -1,0 +1,298 @@
+// Backup Query
+
+
+CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(150) NOT NULL,
+    userLevel VARCHAR(10),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE address (
+    customerId INT NOT NULL,
+    province VARCHAR(20),
+    city VARCHAR(50),
+    details VARCHAR(150),
+    PRIMARY KEY (customerId),
+    CONSTRAINT fk_address_customers
+        FOREIGN KEY (customerId) REFERENCES users(id)
+);
+DROP TABLE address;
+
+CREATE TABLE customerInfo (
+    customerId INT NOT NULL,
+    customerName VARCHAR(50) NOT NULL,
+    birthDay DATE,
+    phoneNumber VARCHAR(20),
+    gender VARCHAR(6),
+    PRIMARY KEY (customerId),
+    CONSTRAINT fk_customerInfo_customers
+        FOREIGN KEY (customerId) REFERENCES users(id)
+);
+
+INSERT INTO customerInfo (customerId, customerName)
+VALUES (2,'Ivandohan Samuel Siregar');
+
+SELECT customerName AS name FROM customerInfo AS ci
+INNER JOIN users AS c ON (ci.customerId = 5);
+
+CREATE TABLE suppliers (
+    supplierId VARCHAR(5) NOT NULL,
+    supplierName VARCHAR(30) NOT NULL,
+    detailAddress VARCHAR(100) NOT NULL,
+    storeType VARCHAR(15),
+    PRIMARY KEY (supplierId)
+);
+
+CREATE TABLE products (
+    productId INT NOT NULL AUTO_INCREMENT,
+    categoryId VARCHAR(10) NOT NULL,
+    subCategoryId VARCHAR(10) NOT NULL,
+    productName VARCHAR(100) NOT NULL,
+    productPrice INT NOT NULL,
+    productImage VARCHAR(200),
+    productQuantity INT,
+    PRIMARY KEY (productId),
+    CONSTRAINT fk_products_category
+        FOREIGN KEY (categoryId) REFERENCES category(categoryId),
+    CONSTRAINT fk_products_subCategory
+        FOREIGN KEY (subCategoryId) REFERENCES subCategory(subCategoryId)
+);
+DROP TABLE products;
+
+CREATE TABLE orders (
+    orderId INT NOT NULL AUTO_INCREMENT,
+    customerId INT NOT NULL,
+    shippedBy VARCHAR(5),
+    orderDate DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    shipVia VARCHAR(20),
+    PRIMARY KEY (orderId),
+    CONSTRAINT fk_orders_customers
+        FOREIGN KEY (customerId) REFERENCES users(id),
+    CONSTRAINT fk_orders_suppliers
+        FOREIGN KEY (shippedBy) REFERENCES suppliers(supplierId)
+);
+drop table orders;
+
+CREATE TABLE orderDetails (
+    orderId INT NOT NULL,
+    productId INT NOT NULL,
+    price INT NOT NULL,
+    quantity INT,
+    phoneNumber VARCHAR(20),
+    shippedTo VARCHAR(150),
+    paymentMethod VARCHAR(50),
+    statusOrder VARCHAR(10) DEFAULT 'pending',
+    emailOrder VARCHAR(50),
+    CONSTRAINT fk_orderDetail_orders
+        FOREIGN KEY (orderId) REFERENCES orders(orderId),
+    CONSTRAINT fk_orderDetail_products
+        FOREIGN KEY (productId) REFERENCES products(productId)
+);
+DROP TABlE orderDetails;
+
+CREATE TABLE category (
+    categoryId VARCHAR(5),
+    categoryName VARCHAR(10) NOT NULL,
+    PRIMARY KEY (categoryId)
+);
+
+CREATE TABLE subCategory (
+    subCategoryId VARCHAR(5) NOT NULL,
+    subCategoryName VARCHAR(10) NOT NULL,
+    PRIMARY KEY (subCategoryId)
+);
+
+CREATE TABLE cart (
+    cartId INT NOT NULL AUTO_INCREMENT,
+    productId INT NOT NULL,
+    customerId INT NOT NULL,
+    quantity INT NOT NULL,
+    PRIMARY KEY (cartId),
+    CONSTRAINT fk_cart_customers
+        FOREIGN KEY (customerId) REFERENCES users(id),
+    CONSTRAINT fk_cart_products
+        FOREIGN KEY (productId) REFERENCES products(productId)
+);
+DROP TABLE cart;
+CREATE TABLE messages (
+    messageId INT NOT NULL AUTO_INCREMENT,
+    customerId INT NOT NULL,
+    messageEmail VARCHAR(50) NOT NULL,
+    messagePhone VARCHAR(20) NOT NULL,
+    messageContent TEXT,
+    rate INT,
+    PRIMARY KEY (messageId),
+    CONSTRAINT fk_messages_customers
+        FOREIGN KEY (customerId) REFERENCES users(id)
+);
+
+CREATE TABLE author (
+    authorId INT NOT NULL AUTO_INCREMENT,
+    authorName VARCHAR(50) NOT NULL,
+    authorImage VARCHAR(50),
+    fb VARCHAR(100),
+    ig VARCHAR(100),
+    twitter VARCHAR(100),
+    linkedIn VARCHAR(100),
+    PRIMARY KEY (authorId)
+);
+
+INSERT INTO author (authorName, authorImage)
+VALUES ('Ivandohan Samuel Siregar', 'ivando.jpg');
+
+
+
+SELECT * FROM cart INNER JOIN products
+ON (cart.productId = products.productId);
+
+SELECT c.cartId as id,
+       c.quantity as quantity,
+       c.productId as id,
+       p.productName AS name,
+       p.productImage AS image,
+       p.productPrice AS price
+FROM cart AS c
+INNER JOIN products AS p ON (c.productId = p.productId)
+INNER JOIN users AS cs ON (c.customerId = 5);
+
+
+SELECT * FROM orderDetails AS od
+INNER JOIN orders AS o ON (od.orderId = o.orderId)
+INNER JOIN customerInfo AS c ON (o.customerId = c.customerId)
+INNER JOIN products AS p ON (od.productId = p.productId);
+
+INSERT INTO orderDetails (orderId, productId, price, quantity, shippedTo)
+VALUES (1,1,150000, 1, 'Tarutung DKK');
+
+SELECT o.orderDate AS orderDate,
+       ci.customerName AS name,
+       od.shippedTo AS address,
+       od.emailOrder AS email,
+       od.paymentMethod AS method,
+       od.price AS price,
+       od.statusOrder AS status,
+       od.phoneNumber AS number
+FROM orderDetails AS od
+INNER JOIN orders AS o ON (od.orderId = o.orderId)
+INNER JOIN customerInfo AS ci ON (o.customerId = ci.customerId)
+INNER JOIN products AS p ON (od.productId = p.productId);
+
+
+# Admin
+SELECT o.orderDate AS orderDate,
+       c.id AS userId,
+       ci.customerName AS name,
+       od.shippedTo AS address,
+       od.emailOrder AS email,
+       od.paymentMethod AS method,
+       od.quantity AS quantity,
+       od.price AS price,
+       od.statusOrder AS status,
+       od.phoneNumber AS number
+FROM orderDetails AS od
+INNER JOIN orders AS o ON (od.orderId = o.orderId)
+INNER JOIN users AS c ON (o.customerId = c.id)
+INNER JOIN customerInfo AS ci ON (o.customerId = ci.customerId)
+INNER JOIN products AS p ON (od.productId = p.productId);
+
+SELECT c.cartId as id,
+    c.productId as productId,
+    c.quantity as quantity,
+    p.productName AS name,
+    p.productImage AS image,
+    p.productPrice AS price
+FROM cart AS c
+INNER JOIN products AS p ON (c.productId = p.productId)
+WHERE customerId = 5;
+
+SELECT o.orderDate AS orderDate,
+    ci.customerName AS name,
+    od.shippedTo AS address,
+    od.emailOrder AS email,
+    od.paymentMethod AS method,
+    od.price AS price,
+    od.statusOrder AS status,
+    od.phoneNumber AS number
+FROM orderDetails AS od
+INNER JOIN orders AS o ON (od.orderId = o.orderId)
+INNER JOIN customerInfo AS ci ON (o.customerId = 5);
+
+SELECT * FROM orderDetails;
+
+SELECT p.productName AS productName,
+       p.productImage AS productImage,
+       p.productPrice AS productPrice,
+       c.categoryName AS categoryName,
+       sC.subCategoryName AS subCategoryName
+FROM products AS p
+INNER JOIN category AS c ON (p.categoryId = c.categoryId)
+INNER JOIN subCategory sC on (p.subCategoryId = sC.subCategoryId)
+WHERE productName LIKE '%{$search_item}%'
+OR categoryName LIKE '%{$search_item}%'
+OR subCategoryName LIKE 'atasan';
+
+SELECT ci.customerName AS name,
+       m.messageContent AS content
+FROM messages AS m
+INNER JOIN customerinfo AS ci on (m.customerId = ci.customerId);
+
+SELECT o.orderDate AS orderDate,
+    ci.customerName AS name,
+    od.shippedTo AS address,
+    od.emailOrder AS email,
+    od.paymentMethod AS method,
+    od.price AS price,
+    od.statusOrder AS status,
+    od.phoneNumber AS number
+FROM orderDetails AS od
+INNER JOIN orders AS o ON (od.orderId = o.orderId)
+INNER JOIN customerInfo AS ci ON (o.customerId = o.customerId)
+WHERE ci.customerId = 1;
+
+
+SELECT ci.customerName AS name,
+       c.id AS id,
+       c.email AS email,
+       c.userLevel AS userLevel
+FROM customerInfo AS ci
+INNER JOIN users AS c ON (c.id = ci.customerId);
+
+
+SELECT ci.customerName AS name,
+       m.customerId AS id,
+       m.messageContent AS content,
+       m.messageEmail AS email,
+       m.messagePhone AS phone,
+       m.rate AS rate
+FROM messages AS m
+INNER JOIN customerInfo ci on (m.customerId = ci.customerId);
+
+SELECT od.price AS price
+FROM orderDetails AS od
+INNER JOIN orders AS o ON (od.orderId = o.orderId)
+INNER JOIN customerInfo AS ci ON (o.customerId = ci.customerId)
+INNER JOIN products AS p ON (od.productId = p.productId)
+WHERE od.statusOrder = 'completed';
+
+SELECT o.orderDate AS orderDate,
+    ci.customerName AS name,
+    od.shippedTo AS address,
+    od.emailOrder AS email,
+    od.paymentMethod AS method,
+    od.price AS price,
+    od.statusOrder AS status,
+    od.phoneNumber AS number
+FROM orderDetails AS od
+INNER JOIN orders AS o ON (od.orderId = o.orderId)
+INNER JOIN customerInfo AS ci ON (o.customerId = 2)
+WHERE ci.customerId = 2;
+
+INSERT INTO suppliers(supplierId, supplierName, detailAddress, storeType)
+VALUES ('SP001', 'TIM10 23 PASKAL', 'Jl. Pasirkaliki,Komplek Paskal Hypersquare, Andir, Bandung', 'Large Store'),
+       ('SP002', 'TIM10 AEON MALL BSD CITY', 'Jl. Grand Boulevard BSD City Tangerang, Banten', 'Large Store'),
+       ('SP003', 'TIM10 CIPUTRA WORLD SURABAYA', 'Gunung Sari, Dukuhpakis, Surabaya City, East Java', 'Large Store'),
+       ('SP004', 'TIM10 DELIPARK MALL', 'Jl. Putri Hijau No.1, Kesawan, OPQ, Kota Medan, Sumatera Utara', 'Large Store'),
+       ('SP005', 'TIM10 BONTANI SQUARE MALL', 'Jl. Raya Pajajaran No.40, Tugu Kujang, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat', 'Large Store'),
+       ('SP006', 'TIM10 EMPORIUM PLUIT MALL', 'Jl. Pluit Selatan Raya, Penjaringan, Kec. Penjaringan, Kota Jkt Utara, DKI Jakarta', 'Large Store');

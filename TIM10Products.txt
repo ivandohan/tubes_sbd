@@ -1,0 +1,95 @@
+// Backup Query Insert products
+// Backup Data Products
+
+
+INSERT INTO `products`( `categoryId`, `subCategoryId`, `productName`, `productPrice`, `productImage`, `productQuantity`)
+VALUES ('a','sc01','AIRism Katun T-shirt Grafis Hijau Lengan Pendek',170000,'KIDSAIRismKatunT-shirtGrafisHijauLenganPendek.jpg',100),
+       ('a','sc01','AIRism Katun T-shirt Grafis Lengan Pendek',155000,'KIDSAIRismKatunT-shirtGrafisLenganPendek.jpg',100),
+        ('a','sc01','AIRsm Jaket Mesh Hoodie UV Protection',160000,'KIDSAIRsmJaketMeshHoodieUVProtection.jpg',100),
+        ('a','sc01','GIRLS T-shirt Katun Lembut Frill Lengan Pendek',150000,'KIDSGIRLST-shirtKatunLembutFrillLenganPendek.jpg',100),
+        ('a','sc01','UT Mickey Stand Lengan Pendek',180000,'KIDSUTMickeyStandLenganPendek.jpg',100),
+
+          ('b','sc01','TODDLER AIRism Katun Cardigan UV Protection',200000,'BABIESTODDLERAIRismKatunCardiganUVProtection.jpg',100),
+        ('b','sc01','TODDLER AIRism Katun T-shirt Biru Kantong Crew Neck',155000,'BABIESTODDLERAIRismKatunT-shirtBiruKantongCrewNeck.jpg',100),
+        ('b','sc01','TODDLER AIRism Katun T-shirt Crew Neck Bayi Frill',165000,'BABIESTODDLERAIRismKatunT-shirtCrewNeckBayiFrill.jpg',100),
+        ('b','sc01','TODDLER ARism Katun T-shirt Crew Neck Bayi',170000,'BABIESTODDLERARismKatunT-shirtCrewNeckBayi.jpg',100),
+         ('b','sc01','TODDLER UT Disney Lengan Pendek',185000,'BABIESTODDLERUTDisneyLenganPendek.jpg',100),
+
+        ('p','sc01','Kaos Polo DRY-EX Lengan Pendek',160000,'MENKaosPoloDRY-EXLenganPendek.jpg',100),
+        ('p','sc01','T-shirt DRY-EX Crew Neck Mapping',170000,'MENT-shirtDRY-EXCrewNeckMapping.jpg',100),
+        ('p','sc01','T-shirt Oversized Garis Biru Crew Neck Lengan Half',168000,'MENT-shirtOversizedGarisBiruCrewNeckLenganHalf.jpg',100),
+        ('p','sc01','T-shirt Oversized Garis Crew Neck Lengan Half',189000,'MENT-shirtOversizedGarisCrewNeckLenganHalf.jpg',100),
+
+        ('w','sc01','AIRism T-shirt Mapping Crew Neck',156000,'WOMENAIRismT-shirtMappingCrewNeck.jpg',100),
+        ('w','sc01','T-shirt Crew Neck Lengan Pendek UniqloU',175000,'WOMENT-shirtCrewNeckLenganPendekUniqloU.jpg',100),
+        ('w','sc01','T-shirt Crop Jersey Slub Garis Crew Neckr',190000,'WOMENT-shirtCropJerseySlubGarisCrewNeck.jpg',100),
+        ('w','sc01','T-shirt Crop Rib Lengan Pendek',160000,'WOMENT-shirtCropRibLenganPendek.jpg',100),
+        ('w','sc01','T-shirt Oversized Lengan Half',180000,'WOMENT-shirtOversizedLenganHalf.jpg',100),
+
+        ('a','sc02','Celana Pendek Relax(YACHT)',165000,'KIDSCelanaPendekRelax(YACHT).jpg',100),
+       ('a','sc02','Celana Pendek Relax Smithsonian',178000,'KIDSCelanaPendekRelaxSmithsonian.jpg',100),
+        ('a','sc02','Celana Pendek Relax Smithsonian Hijau Lumut',170000,'KIDSCelanaPendekRelaxSmithsonianHijauLumut.jpg',100),
+        ('a','sc02','GIRLS Celana Pendek Relax Dry Seersucker',159000,'KIDSGIRLSCelanaPendekRelaxDrySeersucker.jpg',100),
+
+         ('b','sc02','TODDLER Celana Legging Crop(Starfish)',157000,'BABIESSTODDLERCelanaLeggingCrop(Starfish).jpg',100),
+        ('b','sc02','TODDLER Celana Legging Crop',180000,'BABIESSTODDLERCelanaLeggingCrop.jpg',100),
+        ('b','sc02','TODDLER Celana Legging Crop Paul&Joe',160000,'BABIESSTODDLERCelanaLeggingCropPaul&Joe.jpg',100),
+        ('b','sc02','TODDLER Celana Pendek Relax Dry(Motif)',168000,'BABIESSTODDLERCelanaPendeKRelaxDry(Motif).jpg',100),
+         ('b','sc02','TODDLE RCelana Pendek Relax Dry Cream(Motif)',190000,'BABIESSTODDLERCelanaPendekRelaxDryCream(Motif).jpg',100),
+
+        ('p','sc02','Celana Pendek Relax Katun Ringan(LEAF)',160000,'MENCelanaPendekRelaxKatunRingan(LEAF).jpg',100),
+        ('p','sc02','Celana Pendek Relax Katun Ringan(SLUB)',170000,'MENCelanaPendekRelaxKatunRingan(SLUB).jpg',100),
+        ('p','sc02','Celana Pendek Relax Ultra Light UNIQLOX THEORY',180000,'MENCelanaPendekRelaxUltraLightUNIQLOXTHEORY.jpg',100),
+        ('p','sc02','Celana Pendek Relax Washed Jersey',175000,'MENCelanaPendekRelaxWashedJersey.jpg',100),
+       ('p','sc02','Light Cotton Easy Shorts',150000,'MENLightCottonEasyShorts.jpg',100),
+
+        ('w','sc02','Celana Lebar Bermuda Linen Blend',179000,'WOMENCelanaLebarBermudaLinenBlend.jpg',100),
+        ('w','sc02','Celana Lebar Lipit Linen Blend',180000,'WOMENCelanaLebarLipitLinenBlend.jpg',100),
+        ('w','sc02','CelanaPendekLinenKatun',150000,'WOMENCelanaPendekLinenKatun.jpg',100),
+        ('w','sc02','CelanaPendekSmartKotak',198000,'WOMENCelanaPendekSmartKotak.jpg',100),
+        ('w','sc02','CelanaTaperedLinenKatun',186000,'WOMENCelanaTaperedLinenKatun.jpg',100),
+
+        ('a','sc03','AIRism Jaket Mesh Hoodie UV Protection',170000,'KIDSAIRismJaketMeshHoodieUVProtection.jpg',100),
+       ('a','sc03','GIRLS Cardigan UV Protection Crew Neck',190000,'KIDSGIRLSCardiganUVProtectionCrewNeck.jpg',100),
+        ('a','sc03','GIRLS Cardigan UV Protection CrewNeck PINKXCREAM',160000,'KIDSGIRLSCardiganUVProtectionCrewNeckPINKXCREAM.jpg',100),
+        ('a','sc03','Jaket Parka Saku UV Protection',185000,'KIDSJaketParkaSakuUVProtection.jpg',100),
+        ('a','sc03','Jaket Sweat Dry Ultra Stretch Hoodie Resleting',175000,'KIDSJaketSweatDryUltraStretchHoodieResleting.jpg',100),
+
+        ('p','sc03','AIRism Jaket Hoodie Resleting UV Protection',150000,'MENAIRismJaketHoodieResletingUVProtection.jpg',100),
+        ('p','sc03','BLOCKTECH Jaket Parka',165000,'MENBLOCKTECH aketParka.jpg',100),
+        ('p','sc03','Jaket Parka Saku Anorak UV Protection',165000,'MENJaketParkaSakuAnorakUVProtection.jpg',100),
+        ('p','sc03','Jaket Parka Saku Anorak UV Protection BIRU',185000,'MENJaketParkaSakuAnorakUVProtectionBIRU.jpg',100),
+       ('p','sc03','Jaket Parka Saku Katun Seersucker',150000,'MENJaketParkaSakuKatunSeersucker.jpg',100),
+
+        ('w','sc03','AIRism aketMeshHoodieUVProtection',170000,'WOMENAIRism aketMeshHoodieUVProtection.jpg',100),
+        ('w','sc03','Jaket Parka Saku UV Protection(Motif)',180000,'WOMENJaketParkaSakuUVProtection(Motif).jpg',100),
+        ('w','sc03','Jaket Parka Saku UV Protection',178000,'WOMENJaketParkaSakuUVProtection.jpg',100),
+        ('w','sc03','Jaket Parka Saku UV Protection UNGU',180000,'WOMENJaketParkaSakuUVProtectionUNGU.jpg',100),
+        ('w','sc03','Jaket Pendek Jersey',193000,'WOMENJaketPendekJersey.jpg',100),
+
+        ('a','sc04','AIRism Masker',150000,'KIDSAIRismMasker.jpg',100),
+       ('a','sc04','Gift Bag',160000,'KIDSGiftBag.jpg',100),
+        ('a','sc04','Gift Bag Kanvas',170000,'KIDSGiftBagKanvas.jpg',100),
+        ('a','sc04','Tas Tote Kanvas',180000,'KIDSTasToteKanvas.jpg',100),
+        ('a','sc04','Topi Reyn Spooner',190000,'KIDSTopiReynSpooner.jpg',100),
+
+        ('b','sc04','Kaos Kaki Pendek 2 pack',170000,'BABIESKaosKakiPendek2pack.jpg',100),
+        ('b','sc04','Kaos Kaki Pendek 2 Reguler Pack Warna',160000,'BABIESKaosKakiPendek2RegulerPackWarna.jpg',100),
+        ('b','sc04','NEWBORN Topi Joy Of Print',180000,'BABIESNEWBORNTopiJoyOfPrint.jpg',100),
+        ('b','sc04','NEWBORN Topi Joy Of Print Gambar Beruang Kecil',150000,'BABIESKaosKakiPendek2pack.jpg',100),
+         ('b','sc04','NEWBORN Topi Joy Of Print Stroberi Pink',175000,'BABIESNEWBORNTopiJoyOfPrintStroberiPink.jpg',100),
+
+        ('p','sc04','AIRism Seprai(Double)',185000,'MENAIRismSeprai(Double).jpg',100),
+        ('p','sc04','Ikat Pinggang Italian Leather Saddle Narrow',190000,'MENIkatPinggangItalianLeatherSaddleNarrow.jpg',100),
+        ('p','sc04','Kacamata Sport Rim Half',155000,'MENKacamataSportRimHalf.jpg',100),
+        ('p','sc04','Payung Compact UV Protection',156000,'MENPayungCompactUVProtection.jpg',100),
+        ('p','sc04','Tas Singlestrap',150000,'MENTasSinglestrap.jpg',100),
+
+        ('w','sc04','2 WAY Strectch UV Protection',200000,'WOMEN2WAYStrectchUVProtection.jpg',100),
+        ('w','sc04','AIRism Bandana',165000,'WOMENAIRismBandana.jpg',100),
+        ('w','sc04','AIRism Masker',175000,'WOMENAIRismMasker.jpg',100),
+        ('w','sc04','AIRism Dalaman Hijab HANATAJIMA FOR UNIQLO',155000,'WOMENAIRismDalamanHijabHANATAJIMAFORUNIQLO.jpg',100),
+        ('w','sc04','Topi Bucket UV Protection WOMEN AIRism Bandana',185000,'WOMENTopiBucketUVProtection.jpg',100);
+
+
+
